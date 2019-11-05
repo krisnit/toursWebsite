@@ -48,18 +48,54 @@ body{
     top:40%;
     left:50%;
     position: absolute;
-    transform: translate(-40%,-50%)
+    transform: translate(-40%,-50%);
+    backface-visibility:hidden;
 }
 
 .heading-primary-main{
     font-size: 60px;
     display: block;
     letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 
 .heading-primary-sub{
     display: block;
     font-size: 20px;
     letter-spacing: 17.4px;
+   animation: moveInRight 1s ease-out;
 }
 
+@keyframes moveInLeft{
+    0%{
+        transform: translateX(-50px);
+        opacity:0;
+    }
+
+    80% { 
+        transform: translateX(10px)
+    }
+
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes moveInRight{
+    0%{
+        transform: translateX(50px);
+        opacity:0;
+    }
+
+    80% { 
+        transform: translateX(-10px)
+    }
+
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
